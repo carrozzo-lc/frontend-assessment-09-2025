@@ -13,7 +13,9 @@ export const useTheme = () => {
   return context;
 };
 
-const ThemeProvider: React.FC = ({ children }) => {
+const ThemeProvider: React.FC<React.PropsWithChildren<object>> = ({
+  children,
+}) => {
   const [theme, setTheme] = useState('light');
   useEffect(() => {
     const storedTheme = localStorage.getItem('theme');

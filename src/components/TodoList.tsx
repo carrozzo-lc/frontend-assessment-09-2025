@@ -1,5 +1,5 @@
 'use client';
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 interface Task {
   id: number;
@@ -22,9 +22,9 @@ const TodoList: React.FC = () => {
 
   const toggleTask = (taskId: number) => {
     const updatedTasks = tasks.map((task) => {
-      if (tasks.id === taskId) {
-        return { ...task, completed: !task.completed };
-      }
+      // if (tasks.id === taskId) {
+      //   return { ...task, completed: !task.completed };
+      // }
       return task;
     });
     setTasks(updatedTasks);

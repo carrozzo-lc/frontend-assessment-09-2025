@@ -58,15 +58,17 @@ const RegistrationForm: React.FC = () => {
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
+    type InputField = keyof typeof inputs;
+    const fieldName = name as InputField;
     setInputs({
       ...inputs,
-      [name]: value,
+      [fieldName]: value,
     });
     // Clear the error of the input field when the user starts typing
-    if (errors[name]) {
+    if (errors[fieldName]) {
       setErrors({
         ...errors,
-        [name]: '',
+        [fieldName]: '',
       });
     }
   };
