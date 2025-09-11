@@ -1,7 +1,0 @@
-{
-  "css.validate": false,
-  "typescript.tsdk": "node_modules/typescript/lib",
-  "typescript.enablePromptUseWorkspaceTsdk": true,
-  "files.autoSave": "afterDelay",
-  "files.autoSaveDelay": 1000
-}
