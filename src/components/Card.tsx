@@ -1,0 +1,15 @@
+type CardProps = {
+  title: string;
+  children: React.ReactNode;
+};
+
+const Card = ({ title, children }: CardProps) => {
+  return (
+    <div className="mb-10 rounded-2xl bg-gray-200 p-4">
+      {title && <h2 className="mb-4">{title}</h2>}
+      <div className="rounded-2xl bg-gray-50">{children}</div>
+    </div>
+  );
+};
+
+export default Card;
