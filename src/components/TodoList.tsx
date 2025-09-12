@@ -52,13 +52,13 @@ const TodoList: React.FC = () => {
             placeholder="Add a new task"
             onChange={handleInputChange}
             value={newTask}
-            className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6 dark:bg-white/5 dark:text-white dark:outline-white/10 dark:placeholder:text-gray-500 dark:focus:outline-indigo-500"
+            className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
           />
         </div>
         <button
           type="button"
           onClick={addTask}
-          className="cursor-pointer rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-offset-2 focus-visible:outline-indigo-600 dark:bg-indigo-500 dark:shadow-none dark:hover:bg-indigo-400 dark:focus-visible:outline-indigo-500"
+          className="cursor-pointer rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
         >
           Add Task
         </button>
@@ -71,7 +71,7 @@ const TodoList: React.FC = () => {
           <li
             key={task.id}
             onClick={() => toggleTask(task.id)}
-            className={`mt-4 w-full cursor-pointer rounded-xl border border-gray-200 bg-white p-4 ${task.completed ? 'underline opacity-50' : 'hover:bg-gray-50'} dark:border-white/10 dark:bg-white/5 dark:hover:bg-white/10`}
+            className={`mt-4 w-full cursor-pointer rounded-xl border border-gray-200 bg-white p-4 ${task.completed ? 'underline opacity-50' : 'hover:bg-gray-50'} `}
           >
             <span className="font-semibold">{task.text}</span>
           </li>
