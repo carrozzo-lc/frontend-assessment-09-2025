@@ -1,6 +1,6 @@
 // components
 import TodoList from '@/components/TodoList';
-import Card from '@/components/Card';
+import Card from '@/components/ui/Card';
 import RegistrationForm from '@/components/RegistrationForm';
 
 // ----------------------------------------------------------------------
