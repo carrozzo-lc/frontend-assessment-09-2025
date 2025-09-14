@@ -12,13 +12,6 @@
   --font-mono: var(--font-geist-mono);
 }
 
-/* @media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-} */
-
 @custom-variant dark (&:where(.dark, .dark *));
 
 @layer base {
@@ -28,7 +21,7 @@
   }
 
   body {
-    @apply flex min-h-full flex-col overflow-x-hidden text-gray-700;
+    @apply h-full flex min-h-full flex-col overflow-x-hidden text-gray-700 dark:bg-black;
   }
 
   h1,

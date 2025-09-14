@@ -1,42 +1,56 @@
 'use client';
-import { createContext, useContext, useState, useEffect } from 'react';
+import {
+  ReactNode,
+  createContext,
+  useCallback,
+  useContext,
+  useEffect,
+  useState,
+} from 'react';
 
-interface ThemeContextProps {
-  theme: string;
+type Theme = 'light' | 'dark';
+
+interface ThemeContextType {
+  theme: Theme;
   toggleTheme: () => void;
 }
 
-const ThemeContext = createContext<ThemeContextProps | undefined>(undefined);
+export const ThemeContext = createContext<ThemeContextType | null>(null);
 
-export const useTheme = () => {
-  const context = useContext(ThemeContext);
+export const ThemeContextProvider = ({ children }: { children: ReactNode }) => {
+  const [theme, setTheme] = useState<Theme>('light');
 
-  if (!context) {
-    throw new Error('useTheme must be used within a ThemeProvider');
-  }
-  return context;
-};
-
-const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
-  const [theme, setTheme] = useState('light');
-
+  // Al mount: leggi il tema salvato e sincronizza il <body>
   useEffect(() => {
-    const storedTheme = localStorage.getItem('theme');
-    setTheme(storedTheme ?? 'light');
+    const saved = (localStorage.getItem('theme') as Theme) || 'light';
+    setTheme(saved);
+    document.body.classList.remove('light', 'dark');
+    document.body.classList.add(saved);
   }, []);
 
-  const toggleTheme = () => {
-    const newTheme = theme === 'light' ? 'dark' : 'light';
-    localStorage.setItem('theme', newTheme);
-    setTheme(newTheme);
-  };
+  // Toggle sincronizzato: aggiorna stato, body e localStorage
+  const toggleTheme = useCallback(() => {
+    setTheme((prev) => {
+      const next: Theme = prev === 'light' ? 'dark' : 'light';
+      document.body.classList.remove(prev);
+      document.body.classList.add(next);
+      localStorage.setItem('theme', next);
+      return next;
+    });
+  }, []);
 
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme }}>
-      <div className={theme} suppressHydrationWarning>
-        {children}
-      </div>
+      {children}
     </ThemeContext.Provider>
   );
 };
-export default ThemeProvider;
+
+export const useTheme = () => {
+  const ctx = useContext(ThemeContext);
+  if (!ctx)
+    throw new Error('Context must be used within a ThemeContextProvider');
+  return ctx;
+};
+
+export default ThemeContextProvider;
