@@ -2,6 +2,10 @@
 
 Welcome! This is a small Next.js project created as part of a technical assessment. The app demonstrates modern React, TypeScript, and Tailwind CSS usage, with a focus on clean code and best practices.
 
+## Live Demo
+
+You can preview the deployed application here: [https://frontend-assessment-09-2025.onrender.com/](https://frontend-assessment-09-2025.onrender.com/)
+
 ## Features
 
 - Next.js 15 (App Router)
