@@ -17,7 +17,7 @@ interface ThemeContextType {
 
 export const ThemeContext = createContext<ThemeContextType | null>(null);
 
-export const ThemeContextProvider = ({ children }: { children: ReactNode }) => {
+export const ThemeProvider = ({ children }: { children: ReactNode }) => {
   const [theme, setTheme] = useState<Theme>('light');
 
   // On mount: Read the saved theme and sync the <body>
@@ -49,8 +49,8 @@ export const ThemeContextProvider = ({ children }: { children: ReactNode }) => {
 export const useTheme = () => {
   const ctx = useContext(ThemeContext);
   if (!ctx)
-    throw new Error('Context must be used within a ThemeContextProvider');
+    throw new Error('Context must be used within a ThemeProvider');
   return ctx;
 };
 
-export default ThemeContextProvider;
+export default ThemeProvider;
