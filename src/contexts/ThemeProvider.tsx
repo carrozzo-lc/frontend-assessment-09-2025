@@ -20,7 +20,7 @@ export const ThemeContext = createContext<ThemeContextType | null>(null);
 export const ThemeContextProvider = ({ children }: { children: ReactNode }) => {
   const [theme, setTheme] = useState<Theme>('light');
 
-  // Al mount: leggi il tema salvato e sincronizza il <body>
+  // On mount: Read the saved theme and sync the <body>
   useEffect(() => {
     const saved = (localStorage.getItem('theme') as Theme) || 'light';
     setTheme(saved);
@@ -28,7 +28,7 @@ export const ThemeContextProvider = ({ children }: { children: ReactNode }) => {
     document.body.classList.add(saved);
   }, []);
 
-  // Toggle sincronizzato: aggiorna stato, body e localStorage
+  // Synchronized Toggle: Update state, body and localStorage
   const toggleTheme = useCallback(() => {
     setTheme((prev) => {
       const next: Theme = prev === 'light' ? 'dark' : 'light';

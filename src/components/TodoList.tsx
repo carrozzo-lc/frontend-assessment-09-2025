@@ -16,11 +16,13 @@ const TodoList: React.FC = () => {
   const [newTask, setNewTask] = useState('');
 
   const addTask = () => {
+    if (newTask.trim() === '') return;
+
     const updatedTasks = [
       ...tasks,
-      { id: tasks.length, text: newTask, completed: false },
+      { id: Date.now(), text: newTask.trim(), completed: false },
     ];
-    if (newTask.trim() === '') return;
+
     setTasks(updatedTasks);
     setNewTask('');
   };
