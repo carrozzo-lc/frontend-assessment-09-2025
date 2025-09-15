@@ -1,36 +1,77 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Frontend Assessment 09/2025
+
+Welcome! This is a small Next.js project created as part of a technical assessment. The app demonstrates modern React, TypeScript, and Tailwind CSS usage, with a focus on clean code and best practices.
+
+## Features
+
+- Next.js 15 (App Router)
+- TypeScript
+- Tailwind CSS
+- Prettier & ESLint for code quality
+- Simple UI components and theming
 
 ## Getting Started
 
-First, run the development server:
+### 1. Clone the repository
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+```
+git clone <repo-url>
+cd frontend-assessment-09-2025
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 2. Install dependencies
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Using npm:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+npm install
+```
 
-## Learn More
+Or with yarn:
 
-To learn more about Next.js, take a look at the following resources:
+```
+yarn install
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### 3. Run the development server
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```
+npm run dev
+```
 
-## Deploy on Vercel
+Or with yarn:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```
+yarn dev
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Open [http://localhost:3000](http://localhost:3000) in your browser to view the app.
+
+## Linting & Formatting
+
+- **Lint:**
+  ```
+  npm run lint
+  ```
+- **Format:**
+  ```
+  npx prettier --write .
+  ```
+
+## Project Structure
+
+- `src/app/` – App entry, layout, and pages
+- `src/components/` – UI components
+- `src/contexts/` – React context providers
+- `src/styles/` – Global styles and fonts
+- `public/` – Static assets
+
+## Notes
+
+- Prettier is configured with Tailwind CSS plugin for consistent class sorting.
+- ESLint is set up for Next.js and TypeScript best practices.
+- To change the theme, use the ThemeSwitcher component in the UI.
+
+---
+
+If you have any questions, feel free to reach out!
